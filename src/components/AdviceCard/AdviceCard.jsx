@@ -1,6 +1,7 @@
 import styles from "./AdviceCard.module.css";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { Spinner } from "../Spinner/Spinner";
 
 export const AdviceCard = () => {
   const { isPending, error, data, refetch } = useQuery({
@@ -19,9 +20,7 @@ export const AdviceCard = () => {
   return (
     <article className={styles.cardWrapper}>
       <span>Advice #{isPending || error ? "---" : data.slip.id}</span>
-      <h1>
-        <q>{isPending || error ? "loading" : data.slip.advice}</q>
-      </h1>
+      <h1>{isPending ? <Spinner /> : <q>{data.slip.advice}</q>}</h1>
       <button onClick={handleClick}>
         <img className={styles.diceImg} src="./icon-dice.svg" alt="" />
       </button>

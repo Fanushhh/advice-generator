@@ -1,0 +1,26 @@
+.wrapper{
+    width: 100%;
+    padding:10px;
+    
+}
+
+.spinner{
+    width: 75px;
+    height:75px;
+    background-color: var(--dark-gray-blue);
+    border-radius: 50%;
+    margin:0 auto;
+    border:10px solid var(--dark-gray-blue);
+    border-top:10px solid var(--neon-green);
+    animation: spin 2s linear infinite; 
+    transition: all 250ms ease-in-out;   
+}
+
+@keyframes spin {
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
